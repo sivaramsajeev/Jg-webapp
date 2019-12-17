@@ -5,4 +5,4 @@ From tomcat:9.0
 MAINTAINER "Sivaram Sajeev" 
 
 # copy war file on to container 
-COPY ./Jg-web.war /usr/local/tomcat/webapps
+COPY ./target/Jg-web.war /usr/local/tomcat/webapps
