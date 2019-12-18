@@ -16,11 +16,11 @@ node {
     }
     
     stage("Docker hub push"){
-    withCredentials([usernamePassword(credentialsId: '49f6ee20-b6f5-4824-af41-88deb5f5180c', passwordVariable: 'docker_passwd', usernameVariable: 'decker_user')]) {
-     sh 'docker login -u $docker_user -p $docker_passwd'
-     sh 'docker push sivaramsajeev/jg-webapp'
-	}
-    }
+    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+    	sh 'docker login -u $DOCKER_USERNAME  -p $DOCKER_PASSWORD'
+    	sh 'docker push sivaramsajeev/jg-webapp'
+		}
+     }
     
     
 }
