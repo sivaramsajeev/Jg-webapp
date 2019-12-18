@@ -1,7 +1,7 @@
 <html>
 <body>
 
-<h1>DevOps seem to wor just fine</h1>
+<h1>DevOps seem to work just fine</h1>
 
 <h2>Hello World!</h2>
  
