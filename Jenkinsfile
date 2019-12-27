@@ -29,7 +29,7 @@ node {
 	
     stage('sonarqube codecheck') {
     // requires SonarQube Scanner 2.8+
-    def scannerHome = tool 'sonarqube';
+    def scannerHome = tool 'sonarscanner';
     withSonarQubeEnv('sonarqube') {
       sh "${scannerHome}/bin/sonar-scanner"
     }
