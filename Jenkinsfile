@@ -26,4 +26,15 @@ node {
     sshPublisher(publishers: [sshPublisherDesc(configName: 'DeploymentSlave', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo docker ps | grep -v CONTAINER | cut -d" " -f1 | xargs sudo docker rm -f;sudo docker run -itd -p 9090:8080 sivaramsajeev/jg-webapp', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
     
     }
+	
+    stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+    def scannerHome = tool 'SonarQube Scanner 2.8';
+    withSonarQubeEnv('SonarQube Scanner') {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
+	
+	
+		
 }
